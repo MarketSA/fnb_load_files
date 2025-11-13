@@ -19,7 +19,7 @@ def process_from_folder():
         if camp_find:
             for i in camp_find['files']:
                 file_path = f"{i['folder']}\\{i['fileName'].replace('<YYYYMMDD>', datetime.now().strftime('%Y%m%d'))}"
-                if file_path:
+                if os.path.exists(file_path):
                     print("list_files", file_path)
                     return
                     file_data = []
@@ -63,7 +63,8 @@ def process_from_folder():
                     data_res['file_name'] = f"{i}"
                     data_res['camp_name'] = f"{camp_find['name']}"
                     res['files'].append(data_res)
-                
+                else:
+                    print(f'{file_path} does not exist')
                 res['message'] = "process completed"
                 res['status'] = "success"
                 code = 200
