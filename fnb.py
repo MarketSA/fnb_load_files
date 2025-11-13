@@ -48,7 +48,7 @@ def findDupes(db_data, campID):
     return res
 
 
-def fnb_bcpp_process_data(data):
+def fnb_process_data(data):
     res = {
         "message":"",
         "status":"fail",
@@ -60,7 +60,7 @@ def fnb_bcpp_process_data(data):
         res_dm = ""
         DM = None
         insert_res = None
-        camp_find = get_campaigns('single', data)
+        camp_find = get_campaigns(data)
         if camp_find:
             
             

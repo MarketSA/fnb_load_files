@@ -1,6 +1,6 @@
 import os, sys
-from data import log, get_campaigns, process_xlsx, process_txt, process_csv
-from fnb_bcpp import fnb_bcpp_process_data
+from data import log, get_campaigns, process_xlsx, process_csv
+from fnb import fnb_process_data
 
 
 def process_from_folder():
@@ -14,7 +14,7 @@ def process_from_folder():
         data = {"id": 1}
         print('Start running', data)
 
-        camp_find = get_campaigns('single', data)
+        camp_find = get_campaigns(data)
         if camp_find:
             folder = f"./processfiles/{camp_find['main_folder']}/{camp_find['folder']}"
             list_files = os.listdir(f'{folder}')
@@ -38,7 +38,7 @@ def process_from_folder():
                         break
 
                     data['data'] = file_data
-                    data_res, data_code = fnb_bcpp_process_data(data)
+                    data_res, data_code = fnb_process_data(data)
                     
                     if data_code == 200:
                         try:

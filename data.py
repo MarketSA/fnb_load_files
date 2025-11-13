@@ -16,25 +16,17 @@ def db_Connection(server):
     return cnxn
 
 
-def get_campaigns(rem=None, data = None):
+def get_campaigns(data = None):
     campaigns = {}
     file = []
     with open('campaigns.json') as json_file:
         file = json.load(json_file)
     
-    if rem == "single":
-        for i in file:
-            camp_find = None
-            if i["id"] == int(data['id']):
-                campaigns = i
-                break
-            if camp_find: 
-                campaigns = camp_find
-                campaigns['main_folder'] = f"{i['title']}".lower()
-                break
-            else: continue
+    for i in file:
+        if i["id"] == int(data['id']):
+            campaigns = i
+            break
     return campaigns
-
 
 
 def change_phone_number(phone, addZero=None):
@@ -106,34 +98,20 @@ def get_ID_as_values(data, columnNames):
     return res[:-1]
 
 
-def check_duplicate_data_nopop(data = [], columnName="", pop=False):
-    res = {
-        "og_data":[],
-        "dupe_data":[]
-    }
+def check_duplicate_data_nopop(data = [], columnName=""):
     for i in data:
         count = 0
-        toPop = []
+
         for index, dup in enumerate(data, start=0):
             if i[columnName] == dup[columnName]:
                 count +=1
             if count > 1:
                 i['reason'] = "Exists in File"
-                i['db_campeignid'] = ""
+                i['campeignid'] = "Duplicates in File"
                 i['leadresultid'] = f"unusable"
-                i['operator'] =  f"Data"
-                i['sale_date'] = f"{datetime.now().strftime('%Y-%m-%d')}"
-
-                res["dupe_data"].append(i)
-                if not (index in toPop):
-                    toPop.append(index)
-                count -=1
-        toPop.sort()
-        for index, t in enumerate(toPop, start=0):
-            if pop:
-                data.pop((t-index))
-    res['og_data'] = data
-    return res
+                i['operator'] =  f"DEV"
+                i['sale_date'] = ""
+    return data
 
 def create_insert_string(formart, data):
     res = ""
