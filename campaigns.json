@@ -1,0 +1,41 @@
+[
+
+    {
+ 
+        "id": 1,
+        "name": "FNB Life Customized HomeLoanApp",
+        "idcolumn": "ucn",
+        "folder": "life_customized_homeloanapp",
+        "dbname": "FNB_Outbound_MSA",
+        "server": "192.168.3.103",
+        "username": "sa",
+        "password": "5HbrUva8@",
+        "table": [
+            {
+                "name": "Contacts",
+                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,segment,campeignid )",
+                "dedupe_period": 3,
+                "file_columns": [
+                    "filename"
+                    ,"leadid"
+                    ,"campaignid"
+                    ,"id_no"
+                    ,"ucn"
+                    ,"title"
+                    ,"firstname"
+                    ,"surname"
+                    ,"work_tel_no"
+                    ,"cell_tel_no"
+                    ,"pers_tel_no"
+                    ,"channel_name"
+                    ,"campaign_type"
+                    ,"segment_cluster"
+                    ,"inserted_campaign_id"
+                ]
+            }
+        ],
+        "active": true
+    }
+            
+   
+]
