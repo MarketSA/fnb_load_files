@@ -41,27 +41,23 @@ def process_from_folder():
                         file_data = process_csv(f'{file_path}',)
                     
                     else:
-                        res = {
-                            "message": f"File extension not recognized: {file_path}",
-                            "status": 'fail'
-                        }
-                        code = 404
-                        log('[Error in process_from_folder ]', f"File extension not recognized: {file_path}")
+                        message +=  f"File extension not recognized: {file_path}",
+                        status +=  'fail'
                         break
 
                     for d in file_data:
                         d['inserted_campaign_id'] = f'{i['campaign_id']}'.replace('<MM>', f"{datetime.now().strftime('%B')}").replace('<YYYY>', f"{datetime.now().strftime('%Y')}")   
 
-                        file_data = check_duplicate_data_nopop(file_data, 'contact_id')
+                        file_data = check_duplicate_data_nopop(file_data, i['idcolumn'])
                         # check_duplicate_res = check_duplicate_data_nopop(file_data, 'contact_id')
                         # file_data = check_duplicate_res['og_data']
                         # res['dupes'] += check_duplicate_res['dupe_data']
                         # res['dupes_infile'] += len(check_duplicate_res['dupe_data'])
                     message += f"Total records to process: {len(file_data)}\n"
-                    return
 
                     data_res, data_code = fnb_process_data(file_data)
                     message += f"{data_res}\n \n"
+                    continue
                     if data_code == 200:
                         try:
                             # os.remove(f'{folder}/{i}')
@@ -83,9 +79,10 @@ def process_from_folder():
     except Exception as e:
         message = '[Error in process_from_folder ]' +  f"{e} on line> {e.__traceback__.tb_lineno}"
         status = 'fail'
+        print(message)
 
     send_ntfy("FNB Load Files Process", message, tags=status)
-    return res, code
+    print('Processing completed')
 
 
 process_from_folder()
