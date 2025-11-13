@@ -1,7 +1,6 @@
 
 from datetime import datetime
 import pyodbc, pandas, json
-from flask import current_app as capp
 
 def log(log, err= None):
     tm = datetime.now().strftime("%Y_%m_%d")
@@ -188,17 +187,13 @@ def insert_no_data(server, sql):
     res = {}
     try:
         # if True:
-        if not capp.debug:
             # print(sql)
-            cnxn = db_Connection(server)
-            cursor = cnxn.cursor()
-            count = cursor.execute(sql).rowcount
-            cnxn.commit()
-            cnxn.close()
-            res = count
-        else:
-            res = "Server in debug mode"
-            print("app in debug mode")
+        cnxn = db_Connection(server)
+        cursor = cnxn.cursor()
+        count = cursor.execute(sql).rowcount
+        cnxn.commit()
+        cnxn.close()
+        res = count
     except Exception as e:
         log(f"Error in Inserting no Data camp_ID=> {server['id']} ||", f"{e} on line => {e.__traceback__.tb_lineno}")
         res = 'ERROR'
