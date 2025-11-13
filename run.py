@@ -17,9 +17,11 @@ def process_from_folder():
 
         camp_find = get_campaigns(data)
         if camp_find:
-            folder = f"./processfiles/{camp_find['main_folder']}/{camp_find['folder']}"
+            folder = f"{camp_find['folder']}"
             list_files = os.listdir(f'{folder}')
             if list_files:
+                print("list_files", list_files)
+                return
                 for i in list_files:
                     file_data = []
                     
