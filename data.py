@@ -102,7 +102,7 @@ def check_duplicate_data_nopop(data = [], columnName=""):
     for i in data:
         count = 0
 
-        for index, dup in enumerate(data, start=0):
+        for dup in data:
             if i[columnName] == dup[columnName]:
                 count +=1
             if count > 1:

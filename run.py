@@ -1,27 +1,37 @@
-import os, sys
+import os, sys, requests
 from datetime import datetime
-from data import log, get_campaigns, process_xlsx, process_csv
+from data import log, get_campaigns, process_xlsx, process_csv, check_duplicate_data_nopop, 
 from fnb import fnb_process_data
+
+
+
+def send_ntfy(title, message, tags='inbox_tray'):
+    try:
+        requests.post('http://34.58.235.239/reports',
+        data=message,
+        headers={
+            "Title": title,
+            "Tags":tags
+            # "Priority": "urgent",s
+        })
+    except: pass
 
 
 def process_from_folder():
 
     code = 500
-    res = {
-        "message": "",
-        "status": 'fail',
-        "files": []
-    }
+    message = ""
+    status=  'fail'
     try:
         print('Start running', {"id": 1})
 
         camp_find = get_campaigns({"id": 1})
         if camp_find:
             for i in camp_find['files']:
+                message += 
                 file_path = f"{i['folder']}\\{i['fileName'].replace('<YYYYMMDD>', datetime.now().strftime('%Y%m%d'))}"
                 if os.path.exists(file_path):
                     print("list_files", file_path)
-                    return
                     file_data = []
                     
                     if file_path.lower().endswith('xlsx') or file_path.lower().endswith('xls'):
@@ -32,22 +42,23 @@ def process_from_folder():
                     
                     else:
                         res = {
-                            "message": f"File extension not recognized: {file_pat}",
+                            "message": f"File extension not recognized: {file_path}",
                             "status": 'fail'
                         }
                         code = 404
-                        log('[Error in process_from_folder ]', f"File extension not recognized: {file_pat}")
+                        log('[Error in process_from_folder ]', f"File extension not recognized: {file_path}")
                         break
 
                     for d in file_data:
                         d['inserted_campaign_id'] = f'{i['campaign_id']}'.replace('<MM>', f"{datetime.now().strftime('%B')}").replace('<YYYY>', f"{datetime.now().strftime('%Y')}")   
 
-                        check_duplicate_res = check_duplicate_data_nopop(file_data, 'contact_id')
-                        file_data = check_duplicate_res['og_data']
-                        res['dupes'] += check_duplicate_res['dupe_data']
-                        res['dupes_infile'] += len(check_duplicate_res['dupe_data'])
+                        file_data = check_duplicate_data_nopop(file_data, 'contact_id')
+                        # check_duplicate_res = check_duplicate_data_nopop(file_data, 'contact_id')
+                        # file_data = check_duplicate_res['og_data']
+                        # res['dupes'] += check_duplicate_res['dupe_data']
+                        # res['dupes_infile'] += len(check_duplicate_res['dupe_data'])
             
-                    final_og_leads += file_data
+                    return
 
                     data_res, data_code = fnb_process_data(file_data)
                     
