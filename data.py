@@ -10,7 +10,13 @@ def log(log, err= None):
     f.close()
 
 
-def db_Connection(server):
+def db_Connection(server=None):
+    server = {
+        "dbname": "FNB_Outbound_MSA",
+        "server": "192.168.3.103",
+        "username": "sa",
+        "password": "5HbrUva8@"
+    }
     con_string = f"SERVER={server['server']};DATABASE={server['dbname']};UID={server['username']};PWD={server['password']}"
     cnxn = pyodbc.connect('DRIVER={SQL Server};'+con_string+";")
     return cnxn
@@ -18,14 +24,9 @@ def db_Connection(server):
 
 def get_campaigns(data = None):
     campaigns = {}
-    file = []
     with open('campaigns.json') as json_file:
-        file = json.load(json_file)
+        campaigns = json.load(json_file)
     
-    for i in file:
-        if i["id"] == int(data['id']):
-            campaigns = i
-            break
     return campaigns
 
 
@@ -136,51 +137,50 @@ def create_insert_string(formart, data):
         res = f"{res[:-1]};"
     return res
 
-def insert_data(server, db_data, insert_formart = 'insert_formart', file_columns='file_columns'):
+def insert_data(campaign, db_data, insert_formart = 'insert_formart', file_columns='file_columns'):
     res = {}
+    table = campaign['table']
     try:
-        for i in server['table']:
-            if i['insert_formart']:
-                print('')   
-                sql = []
-                
-                if len(db_data) < 1000:
-                    db_data = create_insert_string(i[file_columns], db_data)
-                    sql.append(f"""INSERT INTO [{server['dbname']}].dbo.[{i['name']}] {i[insert_formart]} VALUES {db_data}""")
-                else:
-                    val = 1000
-                    if len(db_data) > val:
-                        num = round(len(db_data)/val)
-                        count = 0
-                        for r in range(num+1):
-                            h = 0
-                            if count > len(db_data):
-                                break
-                            h = (val + count)
-                            insert_res = create_insert_string(i[file_columns], db_data[int(count):int(h)])
-                            if insert_res:
-                                sql.append(f"""INSERT INTO [{server['dbname']}].dbo.[{i['name']}] {i[insert_formart]} VALUES {insert_res}""")
-                            count = h
-                
-                cnxn = db_Connection(server)
-                cursor = cnxn.cursor()
-                res_count = 0
-                cursor.execute('set ANSI_WARNINGS  OFF')
+        if table['insert_formart']:
+            sql = []
+            
+            if len(db_data) < 1000:
+                db_data = create_insert_string(table[file_columns], db_data)
+                sql.append(f"""INSERT INTO dbo.[{table['name']}] {table[insert_formart]} VALUES {db_data}""")
+            else:
+                val = 1000
+                if len(db_data) > val:
+                    num = round(len(db_data)/val)
+                    count = 0
+                    for r in range(num+1):
+                        h = 0
+                        if count > len(db_data):
+                            break
+                        h = (val + count)
+                        insert_res = create_insert_string(table[file_columns], db_data[int(count):int(h)])
+                        if insert_res:
+                            sql.append(f"""INSERT INTO dbo.[{table['name']}] {table[insert_formart]} VALUES {insert_res}""")
+                        count = h
+            
+            cnxn = db_Connection()
+            cursor = cnxn.cursor()
+            res_count = 0
+            cursor.execute('set ANSI_WARNINGS  OFF')
+            cnxn.commit()
+
+            for ins in sql:
+                res_count += cursor.execute(ins).rowcount
                 cnxn.commit()
 
-                for ins in sql:
-                    res_count += cursor.execute(ins).rowcount
-                    cnxn.commit()
+            res[table['name']] = res_count
 
-                res[i['name']] = res_count
-
-                cursor.execute('set ANSI_WARNINGS  ON')
-                cnxn.commit()
-                cnxn.close()
+            cursor.execute('set ANSI_WARNINGS  ON')
+            cnxn.commit()
+            cnxn.close()
               
             sql = []
     except Exception as e:
-        log(f"Error in Inserting Data {server['name']} camp_ID=> {server['id']} ||", f"{e} on line => {e.__traceback__.tb_lineno}")
+        log(f"Error in Inserting Data {table['name']} camp_ID=> {table['id']} ||", f"{e} on line => {e.__traceback__.tb_lineno}")
         res = 'ERROR'
     return res
 
