@@ -4,6 +4,7 @@ from fnb import fnb_process_data
 
 
 def process_from_folder():
+
     code = 500
     res = {
         "message": "",
@@ -73,3 +74,6 @@ def process_from_folder():
         }
         code = 500
     return res, code
+
+
+process_from_folder()
