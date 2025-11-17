@@ -139,6 +139,7 @@ def create_insert_string(formart, data):
 def insert_data(campaign, db_data, insert_formart = 'insert_formart', file_columns='file_columns'):
     res = {}
     table = campaign['table']
+    print(table)
     try:
         if table['insert_formart']:
             sql = []
@@ -179,7 +180,7 @@ def insert_data(campaign, db_data, insert_formart = 'insert_formart', file_colum
               
             sql = []
     except Exception as e:
-        log(f"Error in Inserting Data {table['name']} camp_ID=> {table['id']} ||", f"{e} on line => {e.__traceback__.tb_lineno}")
+        print(f"Error in Inserting Data {table['name']} ||", f"{e} on line => {e.__traceback__.tb_lineno}")
         res = 'ERROR'
     return res
 

@@ -15,6 +15,7 @@ def fnb_process_data(data):
         camp_find = get_campaigns(data)
         if camp_find: 
             if data:
+                print('inserting data')
                 insert_res = insert_data(camp_find, data)
                 DM = insert_Dialler_manager(data[0]['inserted_campaign_id'])
                 res_dm = insert_no_data(camp_find, DM)
@@ -26,7 +27,7 @@ def fnb_process_data(data):
                 "insert_rowcount": insert_res,
                 "DM": res_dm 
             }
-            print("SUCCESS in fnb_credit_card-133_process_main_data  split", f"{res['message'], res['data']['insert_rowcount']}")
+            print("SUCCESS in fnb_credit_card-133_process_main_data ", f"{res['message'], res['data']['insert_rowcount']}")
             res['status'] = "success"
             code = 200
         else:
@@ -36,7 +37,7 @@ def fnb_process_data(data):
             code = 400
     except Exception as e:
         code = 500
-        print("Error in fnb_credit_card-133_process_main_data Processing No split", f"{e} on line => {e.__traceback__.tb_lineno}")
+        print("Error in fnb_credit_card-133_process_main_data Processing", f"{e} on line => {e.__traceback__.tb_lineno}")
         res['data'] = []
         res['status'] = "error"
         res['message'] = "Error occurred while trying to match campaigns"
