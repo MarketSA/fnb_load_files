@@ -59,11 +59,11 @@ def process_from_folder():
                                 # res['dupes_infile'] += len(check_duplicate_res['dupe_data'])
                             message += f"Total records to process: {len(file_data)}\n"
 
-                            print('process data here - - - - - ', file_data[0])
+                            # print('process data here - - - - - ', file_data[0])
                             data_res, data_code = fnb_process_data(file_data)
                             print(data_res)
                             # data_res = None
-                            message += f"{data_res}\n \n"
+                            message += f"{data_res}\n \n \n \n"
                             # shutil.move(f"{folder}\\{fol}", f"{folder}\\processed\\{fol}")
                             # continue
                             # if data_code == 200:
@@ -75,7 +75,7 @@ def process_from_folder():
                             # else:
                             #     message += f'File {i['folder']}\\{i['fileName']} processed with errors'
                         else:
-                            message += f'{file_path} does not exist'
+                            message += f'{file_path} does not exist \n \n'
                             message += "process completed"
                             status = "success"
                     
