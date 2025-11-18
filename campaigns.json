@@ -4,7 +4,7 @@
             "name": "FNB Credit Card - PSAS_FRMBO",
             "idcolumn": "ucn",
             "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_PSAS_FRMBO_CC_OpenMarket",
-            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in\\PSAS_FRMBO",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "fileName": "PSAS_FRMBO_CC_OpenMarket_<YYYYMMDD>.csv",
             "active": true
         },
@@ -12,7 +12,7 @@
             "name": "FNB Credit Card - PSAS_NMB",
             "idcolumn": "ucn",
             "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_PSAS_NMB_CC_OpenMarket",
-            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in\\PSAS_NMB",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "fileName": "PSAS_NMB_CC_OpenMarket_<YYYYMMDD>.csv",
             "active": true
         },
@@ -20,7 +20,7 @@
             "name": "FNB Credit Card - PSAS_NTB",
             "idcolumn": "ucn",
             "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_PSAS_NTB_CC_OpenMarket",
-            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in\\PSAS_NTB",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "fileName": "PSAS_NTB_CC_OpenMarket_<YYYYMMDD>.csv",
             "active": true
         }

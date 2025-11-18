@@ -139,7 +139,7 @@ def create_insert_string(formart, data):
 def insert_data(campaign, db_data, insert_formart = 'insert_formart', file_columns='file_columns'):
     res = {}
     table = campaign['table']
-    print(table)
+    # print(table)
     try:
         if table['insert_formart']:
             sql = []
