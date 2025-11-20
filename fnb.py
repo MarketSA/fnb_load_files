@@ -48,31 +48,12 @@ def fnb_process_data(data):
 def insert_Dialler_manager(CampeignID):
     sql = f"""
         INSERT INTO DiallerManager ( CustomerID, DialNumber, NoType, CallResult, CallCount, TsrId, FormName, CampeignID )
-        SELECT Contacts.ContactID, Contacts.TelCell, 'C'+[CampeignID], '0', '0', '0', '8', '10'
+        SELECT Contacts.ContactID, Contacts.TelCell, [CampeignID], '0', '0', '0', '76', '10'
         FROM Contacts
         WHERE Contacts.TelCell Like '0%' 
         AND Contacts.LeadResultID Is Null 
         AND Contacts.CampeignID = '{CampeignID}'
         AND CAST(Import_Date as Date) = CAST(GETDATE() as Date);
-
-
-        INSERT INTO DiallerManager ( CustomerID, DialNumber, NoType, CallResult, CallCount, TsrId, FormName, CampeignID )
-        SELECT Contacts.ContactID, Contacts.TelHome, 'H'+[CampeignID], '0', '0', '0', '8', '10'
-        FROM Contacts
-        WHERE Contacts.TelHome Like '0%' 
-        AND Contacts.LeadResultID Is Null 
-        AND Contacts.CampeignID = '{CampeignID}'
-        AND CAST(Import_Date as Date) = CAST(GETDATE() as Date);
-
-
-        INSERT INTO DiallerManager ( CustomerID, DialNumber, NoType, CallResult, CallCount, TsrId, FormName, CampeignID )
-        SELECT Contacts.ContactID, Contacts.TelWork, 'W'+[CampeignID], '0', '0', '0', '8', '10'
-        FROM Contacts
-        WHERE Contacts.TelWork Like '0%'
-        AND Contacts.LeadResultID Is Null 
-        AND Contacts.CampeignID = '{CampeignID}'
-        AND CAST(Import_Date as Date) = CAST(GETDATE() as Date);
-
     """
     return sql
 

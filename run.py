@@ -1,5 +1,5 @@
 import os, requests, shutil
-from datetime import datetime
+from datetime import datetime, timedelta
 from data import get_campaigns, process_xlsx, process_csv, check_duplicate_data_nopop
 from fnb import fnb_process_data
 from sendemail import sendEMail
@@ -34,8 +34,14 @@ def process_from_folder():
                 # for fol in os.listdir(folder):
                 print('processing folder', folder) 
                 # file_path = f"{folder}\\{fol}" 
-                file_path = f"{i['folder']}\\{i['fileName'].replace('<YYYYMMDD>', datetime.now().strftime('%Y%m%d'))}"
 
+                timespec = (datetime.now() - timedelta(0))
+                file_path = f"{i['folder']}\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}"
+                
+                # shutil.move(f"{file_path}", f"{folder}\\processed\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}")
+                # os.rename(f"{file_path}", f"{folder}\\{i['subfolder']}\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}")
+                # print('file moved')
+                # continue
             # if os.path.isfile(file_path):
                 if os.path.exists(file_path):
                     print("list_files", file_path)
@@ -52,8 +58,8 @@ def process_from_folder():
                         status +=  'fail'
                         break
                     for d in file_data:
-                        d['inserted_campaign_id'] = f'{i['campaign_id']}'.replace('<MM>', f"{datetime.now().strftime('%B')}").replace('<YYYY>', f"{datetime.now().strftime('%Y')}")   
-                        d['filename'] = f"{i['fileName'].replace('<YYYYMMDD>', datetime.now().strftime('%Y%m%d'))}"
+                        d['inserted_campaign_id'] = f'{i['campaign_id']}'.replace('<MM>', f"{timespec.strftime('%B')}").replace('<YYYY>', f"{timespec.strftime('%Y')}")   
+                        d['filename'] = f"{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}"
                         file_data = check_duplicate_data_nopop(file_data, i['idcolumn'])
                         # check_duplicate_res = check_duplicate_data_nopop(file_data, 'contact_id')
                         # file_data = check_duplicate_res['og_data']
@@ -61,13 +67,13 @@ def process_from_folder():
                         # res['dupes_infile'] += len(check_duplicate_res['dupe_data'])
                     message += f"Total records to process: {len(file_data)}\n"
 
-                    print('process data here - - - - - ', file_data[0])
+                    print('process data here - - - - - ')
                     # return
                     data_res, data_code = fnb_process_data(file_data)
                     print(data_res)
                     # data_res = None
                     message += f"{data_res}\n \n \n \n"
-                    # shutil.move(f"{folder}\\{fol}", f"{folder}\\processed\\{fol}")
+                    shutil.move(f"{file_path}", f"{folder}\\processed\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}")
                     # continue
                     # if data_code == 200:
                     #     try:
