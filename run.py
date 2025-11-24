@@ -60,11 +60,9 @@ def process_from_folder(sub):
                     for d in file_data:
                         d['inserted_campaign_id'] = f'{i['campaign_id']}'.replace('<MM>', f"{timespec.strftime('%B')}").replace('<YYYY>', f"{timespec.strftime('%Y')}")   
                         d['filename'] = f"{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}"
-                        file_data = check_duplicate_data_nopop(file_data, i['idcolumn'])
-                        # check_duplicate_res = check_duplicate_data_nopop(file_data, 'contact_id')
-                        # file_data = check_duplicate_res['og_data']
-                        # res['dupes'] += check_duplicate_res['dupe_data']
-                        # res['dupes_infile'] += len(check_duplicate_res['dupe_data'])
+                        
+                    file_data = check_duplicate_data_nopop(file_data, i['idcolumn'])
+
                     message += f"Filename: {file_path} Total records to process: {len(file_data)}\n"
 
                     print('process data here - - - - - ')
