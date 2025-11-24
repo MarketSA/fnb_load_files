@@ -32,14 +32,14 @@ function run(param) {
         date_to_run = getdate(param)
     }
 
-    console.log('date_to_run', date_to_run)
+    console.log('date_to_run', date_to_run, param)
     try {
 
         files.forEach(f => {
 
             fs.rename(`${f['folder']}\\${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`, `${f['folder']}\\${f['subfolder']}\\${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`, (err) => {
                 if (err) {
-                    console.log('error')
+                    console.log('error', err)
                     // if (err) throw err;
                 };
                 console.log('File was moved to destination');
