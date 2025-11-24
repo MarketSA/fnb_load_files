@@ -1,4 +1,4 @@
-import os, requests, shutil
+import os, requests, sys
 from datetime import datetime, timedelta
 from data import get_campaigns, process_xlsx, process_csv, check_duplicate_data_nopop
 from fnb import fnb_process_data
@@ -18,7 +18,7 @@ def send_ntfy(title, message, tags='inbox_tray'):
     except: pass
 
 
-def process_from_folder():
+def process_from_folder(sub):
 
     code = 500
     message = ""
@@ -35,8 +35,8 @@ def process_from_folder():
                 print('processing folder', folder) 
                 # file_path = f"{folder}\\{fol}" 
 
-                timespec = (datetime.now() - timedelta(0))
-                file_path = f"{i['folder']}\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}"
+                timespec = (datetime.now() - timedelta(int(sub)))
+                file_path = f"{i['folder']}\\{i['subfolder']}\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}"
                 
                 # shutil.move(f"{file_path}", f"{folder}\\processed\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}")
                 # os.rename(f"{file_path}", f"{folder}\\{i['subfolder']}\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}")
@@ -65,7 +65,7 @@ def process_from_folder():
                         # file_data = check_duplicate_res['og_data']
                         # res['dupes'] += check_duplicate_res['dupe_data']
                         # res['dupes_infile'] += len(check_duplicate_res['dupe_data'])
-                    message += f"Total records to process: {len(file_data)}\n"
+                    message += f"Filename: {file_path} Total records to process: {len(file_data)}\n"
 
                     print('process data here - - - - - ')
                     # return
@@ -73,16 +73,6 @@ def process_from_folder():
                     print(data_res)
                     # data_res = None
                     message += f"{data_res}\n \n \n \n"
-                    shutil.move(f"{file_path}", f"{folder}\\processed\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}")
-                    # continue
-                    # if data_code == 200:
-                    #     try:
-                    #         # os.remove(f'{folder}/{i}')
-                    #         pass
-                    #     except Exception as e:
-                    #         log('[Error in delete file from process_from_folder ]', f"{e} on line> {e.__traceback__.tb_lineno}")
-                    # else:
-                    #     message += f'File {i['folder']}\\{i['fileName']} processed with errors'
                 else:
                     message += f'{file_path} does not exist \n \n'
                     message += "process completed"
@@ -97,9 +87,11 @@ def process_from_folder():
         status = 'fail'
         print(message)
 
-    sendEMail(['givenk@marketsa.co.za', 'austinp@marketsa.co.za'], message, 'FNB Leads PSAS')
+    sendEMail(['givenk@marketsa.co.za', 'austinp@marketsa.co.za'], message.replace('\n', '<br>'), 'FNB Leads PSAS')
     send_ntfy("FNB Load Files Process", message, tags=status)
     print('Processing completed')
 
 
-process_from_folder()
+process_from_folder(sys.argv[1])
+
+print(sys.argv[1], flush=True)
