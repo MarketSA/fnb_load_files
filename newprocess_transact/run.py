@@ -36,7 +36,7 @@ def process_from_folder(sub):
                 # file_path = f"{folder}\\{fol}" 
 
                 timespec = (datetime.now() - timedelta(int(sub)))
-                file_path = f"{i['folder']}\\{i['subfolder']}\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}"
+                file_path = f"{i['folder']}\\{i['subfolder']}\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime(i['date_format']))}".upper()
                 
                 # shutil.move(f"{file_path}", f"{folder}\\processed\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}")
                 # os.rename(f"{file_path}", f"{folder}\\{i['subfolder']}\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}")
@@ -67,7 +67,7 @@ def process_from_folder(sub):
 
                     print('process data here - - - - - ')
                     # return
-                    data_res, data_code = fnb_process_data(file_data, i['table'])
+                    data_res, data_code = fnb_process_data(file_data, i)
                     print(data_res)
                     # data_res = None
                     message += f"{data_res}\n \n \n \n"
