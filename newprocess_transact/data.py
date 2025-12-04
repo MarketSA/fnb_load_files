@@ -106,8 +106,7 @@ def check_duplicate_data_nopop(data = [], columnName=""):
             if i[columnName] == dup[columnName]:
                 count +=1
             if count > 1:
-                i['reason'] = "Exists in File"
-                i['campeignid'] = "Duplicates in File"
+                i['inserted_campaign_id'] = "Duplicate in File"
                 i['leadresultid'] = f"unusable"
                 i['operator'] =  f"DEV"
                 i['sale_date'] = ""

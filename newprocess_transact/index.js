@@ -53,7 +53,7 @@ function run(param) {
 
         console.log('res', diffDays, date2)
 
-        const pythonProcess = spawn('python', ['run.py', diffDays]);
+        const pythonProcess = spawn('python', ['run_new.py', diffDays]);
         pythonProcess.stdout.on('data', (data) => {
             console.log(`Python output: ${data.toString()}`);
         });

@@ -5,15 +5,15 @@
             "idcolumn": "ucn",
             "campaign_id": "000FNBTransactPrivate_<MM>_<YYYY>_CAPOMigrations",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
-            "fileName": "CAPOMigrations_CMA09971V02M02<YYYYMMDD>.csv",
-            "active": true,
             "subfolder": "CAPOMigrations",
+            "fileName": "CAPOMigrations_CMA09971V02M02<YYYYMMDD>.csv",
             "date_format": "%d%b%Y",
             "table": {
                 "name": "Contacts",
                 "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,segment,campeignid )",
                 "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_type","segment_cluster","inserted_campaign_id"]
-            }
+            },
+            "active": true
         }
     ]
     
