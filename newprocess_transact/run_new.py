@@ -43,36 +43,41 @@ def process_from_folder(sub):
                 # print('file moved')
                 # continue
             # if os.path.isfile(file_path):
-                if os.path.exists(file_path):
-                    print("list_files", file_path)
-                    file_data = []
-                    
-                    if file_path.lower().endswith('xlsx') or file_path.lower().endswith('xls'):
-                        file_data = process_xlsx(f'{file_path}')
-                    
-                    elif file_path.lower().endswith('csv'):
-                        file_data = process_csv(f'{file_path}',)
-                    
-                    else:
-                        message +=  f"File extension not recognized: {file_path}",
-                        status +=  'fail'
-                        break
-                    for d in file_data:
-                        d['inserted_campaign_id'] = f'{i['campaign_id']}'.replace('<MM>', f"{timespec.strftime('%B')}").replace('<YYYY>', f"{timespec.strftime('%Y')}")   
-                        d['filename'] = f"{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}"
+                if i['active']:
+                    if os.path.exists(file_path):
+                        print("list_files", file_path)
+                        file_data = []
                         
-                    file_data = check_duplicate_data_nopop(file_data, i['idcolumn'])
+                        if file_path.lower().endswith('xlsx') or file_path.lower().endswith('xls'):
+                            file_data = process_xlsx(f'{file_path}')
+                        
+                        elif file_path.lower().endswith('csv'):
+                            file_data = process_csv(f'{file_path}',)
+                        
+                        else:
+                            message +=  f"File extension not recognized: {file_path}",
+                            status +=  'fail'
+                            break
+                        for d in file_data:
+                            d['inserted_campaign_id'] = f'{i['campaign_id']}'.replace('<MM>', f"{timespec.strftime('%B')}").replace('<YYYY>', f"{timespec.strftime('%Y')}")   
+                            d['filename'] = f"{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}"
+                            
+                        file_data = check_duplicate_data_nopop(file_data, i['idcolumn'])
 
-                    message += f"Filename: {file_path} Total records to process: {len(file_data)}\n"
+                        message += f"Filename: {file_path} Total records to process: {len(file_data)}\n"
 
-                    print('process data here - - - - - ')
-                    # return
-                    data_res, data_code = fnb_process_data(file_data, i)
-                    print(data_res)
-                    # data_res = None
-                    message += f"{data_res}\n \n \n \n"
+                        print('process data here - - - - - ')
+                        # return
+                        data_res, data_code = fnb_process_data(file_data, i)
+                        print(data_res)
+                        # data_res = None
+                        message += f"{data_res}\n \n \n \n"
+                    else:
+                        message += f'{file_path} does not exist \n \n'
+                        message += "process completed"
+                        status = "success"
                 else:
-                    message += f'{file_path} does not exist \n \n'
+                    message += f'{file_path} Process is deactivated \n \n'
                     message += "process completed"
                     status = "success"
             

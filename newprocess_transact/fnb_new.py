@@ -15,7 +15,7 @@ def fnb_process_data(data, camp_find):
         if data:
             print('inserting data')
             insert_res = insert_data(camp_find, data)
-            DM = insert_Dialler_manager(data[0]['inserted_campaign_id'])
+            DM = insert_Dialler_manager(data[0]['inserted_campaign_id'], camp_find['formName'])
             res_dm = insert_no_data(camp_find, DM)
         else:
             insert_res = "Duplicates where found, but no data was available for insert"
@@ -39,15 +39,16 @@ def fnb_process_data(data, camp_find):
     return res, code
 
 
-def insert_Dialler_manager(CampeignID):
+def insert_Dialler_manager(CampeignID, formName):
     sql = f"""
         INSERT INTO DiallerManager ( CustomerID, DialNumber, NoType, CallResult, CallCount, TsrId, FormName, CampeignID )
-        SELECT Contacts.ContactID, Contacts.TelCell, [CampeignID], '0', '0', '0', '76', '10'
+        SELECT Contacts.ContactID, Contacts.TelCell, [CampeignID], '0', '0', '0', '76', '{formName}'
         FROM Contacts
         WHERE Contacts.TelCell Like '0%' 
         AND Contacts.LeadResultID Is Null 
         AND Contacts.CampeignID = '{CampeignID}'
-        AND CAST(Import_Date as Date) = CAST(GETDATE() as Date);
+        AND CAST(Import_Date as Date) = CAST(GETDATE() as Date)
+        AND Contacts.ContactID not in (SELECT CustomerID from DiallerManager where CustomerID is not null and NoType is not null);
     """
     return sql
 
