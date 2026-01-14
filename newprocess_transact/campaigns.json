@@ -79,7 +79,7 @@
                 "insert_formart": "( filename ,leadid ,campaignid ,idnumber ,ucn ,title ,firstname ,surname ,telwork ,telcell ,telhome ,channel_name ,product ,offer_type ,pa_ammount ,segment ,product_requested ,campeignid )",
                 "file_columns": ["filename" ,"leadid" ,"campaignid" ,"id_no" ,"ucn" ,"title" ,"firstname" ,"surname" ,"work_tel_no" ,"cell_tel_no" ,"pers_tel_no" ,"channel_name" ,"campaign_type" ,"offer_type" ,"offer_amount" ,"offer_segment" ,"product_type", "inserted_campaign_id"]
             },
-            "formName":"81",
+            "formName":"76",
             "active": true
 
         }
