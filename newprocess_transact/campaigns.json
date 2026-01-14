@@ -13,7 +13,7 @@
                 "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,segment,campeignid )",
                 "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_type","segment_cluster","inserted_campaign_id"]
             },
-            "formName":"10",
+            "formName":"81",
             "active": true
         },
     
@@ -30,7 +30,7 @@
                 "insert_formart": "( filename, leadid, campaignid, idnumber, ucn, title, firstname, surname, telwork, telcell, telhome, channel_name, offer_type, campeignid )",
                 "file_columns": ["filename", "leadid" ,"campaignid" ,"id_no" ,"ucn" ,"title" ,"firstname" ,"surname" ,"work_tel_no" ,"cell_tel_no" ,"pers_tel_no" ,"channel_name" ,"offer type", "inserted_campaign_id"]
             },
-            "formName":"10",
+            "formName":"81",
             "active": true
         },
         {
@@ -46,7 +46,7 @@
                 "insert_formart": "( filename, leadid ,campaignid ,idnumber ,ucn ,title ,firstname ,surname ,telwork ,telcell ,telhome ,channel_name ,campeignid )",
                 "file_columns": ["filename" ,"leadid" ,"campaignid" ,"id_no" ,"ucn" ,"title" ,"firstname" ,"surname" ,"work_tel_no" ,"cell_tel_no" ,"pers_tel_no" ,"channel_name", "inserted_campaign_id"]
             },
-            "formName":"10",
+            "formName":"81",
             "active": true
         },
         {
@@ -62,7 +62,7 @@
                 "insert_formart": "( filename ,leadid ,campaignid ,idnumber ,ucn ,title ,firstname ,surname ,telwork ,telcell ,telhome ,channel_name ,offer_type ,campeignid )",
                 "file_columns": ["filename" ,"leadid" ,"campaignid", "id_no" ,"ucn" ,"title" ,"firstname" ,"surname" ,"work_tel_no" ,"cell_tel_no" ,"pers_tel_no" ,"channel_name" ,"offer type", "inserted_campaign_id"]
             },
-            "formName":"10",
+            "formName":"81",
             "active": true
 
         },
@@ -79,7 +79,7 @@
                 "insert_formart": "( filename ,leadid ,campaignid ,idnumber ,ucn ,title ,firstname ,surname ,telwork ,telcell ,telhome ,channel_name ,product ,offer_type ,pa_ammount ,segment ,product_requested ,campeignid )",
                 "file_columns": ["filename" ,"leadid" ,"campaignid" ,"id_no" ,"ucn" ,"title" ,"firstname" ,"surname" ,"work_tel_no" ,"cell_tel_no" ,"pers_tel_no" ,"channel_name" ,"campaign_type" ,"offer_type" ,"offer_amount" ,"offer_segment" ,"product_type", "inserted_campaign_id"]
             },
-            "formName":"10",
+            "formName":"81",
             "active": true
 
         }
