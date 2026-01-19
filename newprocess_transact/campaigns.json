@@ -65,8 +65,8 @@
             "time_format": "%H%M%S",
             "table": {
                 "name": "Contacts",
-                "insert_formart": "( fileName,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,campeignid )",
-                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","offers","segment","inserted_campaign_id"]
+                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,channeltype,source_id,pillar,segment,product_requested,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","lead_type","lead_source","pillar","customer_segment","product_requested","inserted_campaign_id"]
             },
             "formName":"85",
             "active": true
