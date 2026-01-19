@@ -3,7 +3,7 @@
         {
             "name": "FNB Credit Card - AlignmentPI",
             "idcolumn": "ucn",
-            "campaign_id": "000FNBCreditCard__<MM>_<YYYY>_AlignmentPI",
+            "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_AlignmentPI",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_AlignmentPI_<YYYYMMDD>.csv",
