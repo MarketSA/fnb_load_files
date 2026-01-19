@@ -6,8 +6,8 @@
             "campaign_id": "000FNBCreditCard__<MM>_<YYYY>_AlignmentPI",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
-            "fileName": "CC_AlignmentPI__<DDMMYYYY>.csv",
-            "date_format": "%d%b%Y",
+            "fileName": "CC_AlignmentPI_<YYYYMMDD>.csv",
+            "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
                 "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,able_to_move_up_reward_level,current_reward_level,new_reward_level_with_takeup,requirement_to_move_up,new_possible_eb_earn,campeignID )",
