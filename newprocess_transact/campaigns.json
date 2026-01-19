@@ -10,7 +10,7 @@
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
-                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,able_to_move_up_reward_level,current_reward_level,new_reward_level_with_takeup,requirement_to_move_up,new_possible_eb_earn,campeignID )",
+                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,able_to_move_up_reward_level,current_reward_level,new_reward_level_with_takeup,requirement_to_move_up,new_possible_eb_earn,campeignid )",
                 "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","offer_amount","segment","able_to_move_up_reward_level","current_reward_level","new_reward_level_with_takeup","requirement_to_move_up","new_possible_eb_earn","inserted_campaign_id"]
             },
             "formName":"76",
