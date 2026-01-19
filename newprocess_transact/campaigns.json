@@ -52,6 +52,25 @@
             "formName":"76",
             "active": true
         
+        },
+
+        {
+            "name": "FNB Transact - Fusion",
+            "idcolumn": "ucn",
+            "campaign_id": "000FNBTransactPersonal_<MM>_<YYYY>_MP_Fusion_Migration",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
+            "subfolder": "MP_Fusion_Migration",
+            "fileName": "MP_Fusion_Migration_<DDMONYYYY><HHMMSS>.csv",
+            "date_format": "%d%b%Y",
+            "time_format": "%H%M%S",
+            "table": {
+                "name": "Contacts",
+                "insert_formart": "( fileName,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","offers","segment","inserted_campaign_id"]
+            },
+            "formName":"85",
+            "active": true
+        
         }
 
     ]
