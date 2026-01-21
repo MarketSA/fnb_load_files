@@ -25,7 +25,7 @@ function getdate(date_run) {
 function run(param) {
     console.log(param)
     let date_to_run = ''
-    if (param == 'today') {
+    if (param == 'today' || param == null || param == "") {
         date_to_run = today()
         param = today('', '-')
     } else {
@@ -36,8 +36,12 @@ function run(param) {
     try {
 
         files.forEach(f => {
-
-            fs.rename(`${f['folder']}\\${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`, `${f['folder']}\\${f['subfolder']}\\${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`, (err) => {
+            let fileName = `${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`
+        
+            fs.rename(
+                    `${f['folder']}\\${fileName}`
+                , `${f['folder']}\\${f['subfolder']}\\${fileName}`
+            ,(err) => {
                 if (err) {
                     console.log('error', err)
                     // if (err) throw err;

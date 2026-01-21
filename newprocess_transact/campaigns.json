@@ -6,84 +6,13 @@
             "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_AlignmentPI",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
-            "fileName": "CC_AlignmentPI_<YYYYMMDD>.csv",
+            "fileName": "CC_AlignmentPI_<YYYYMMDD>",
+            "fileextension":"csv",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
                 "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,able_to_move_up_reward_level,current_reward_level,new_reward_level_with_takeup,requirement_to_move_up,new_possible_eb_earn,campeignid )",
                 "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","offer_amount","segment","able_to_move_up_reward_level","current_reward_level","new_reward_level_with_takeup","requirement_to_move_up","new_possible_eb_earn","inserted_campaign_id"]
-            },
-            "formName":"76",
-            "active": true
-        
-        },
-
-        {
-            "name": "FNB Credit Card - BT Subset",
-            "idcolumn": "ucn",
-            "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_BT_Subset",
-            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
-            "subfolder": "Credit Card Files Loaded",
-            "fileName": "BT_Subset_<YYYYMMDD>.csv",
-            "date_format": "%Y%m%d",
-            "table": {
-                "name": "Contacts",
-                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,bt_rate,campeignid )",
-                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","offers","segment","bt_rate","inserted_campaign_id"]
-            },
-            "formName":"76",
-            "active": true
-        
-        },
-
-        {
-            "name": "FNB Credit Card - MissAlign Subset",
-            "idcolumn": "ucn",
-            "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_MisAlign",
-            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
-            "subfolder": "Credit Card Files Loaded",
-            "fileName": "CC_Misalignment_<YYYYMMDD>.csv",
-            "date_format": "%Y%m%d",
-            "table": {
-                "name": "Contacts",
-                "insert_formart": "( fileName,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,campeignid )",
-                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","offers","segment","inserted_campaign_id"]
-            },
-            "formName":"76",
-            "active": true
-        
-        },
-
-        {
-            "name": "FNB Transact - Fusion",
-            "idcolumn": "ucn",
-            "campaign_id": "000FNBTransactPersonal_<MM>_<YYYY>_MP_Fusion_Migration",
-            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
-            "subfolder": "MP_Fusion_Migration",
-            "fileName": "MP_Fusion_Migration_{}.csv",
-            "date_format": "%d%b%Y",
-            "table": {
-                "name": "Contacts",
-                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,channeltype,source_id,pillar,segment,product_requested,campeignid )",
-                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","lead_type","lead_source","pillar","customer_segment","product_requested","inserted_campaign_id"]
-            },
-            "formName":"85",
-            "active": true
-        
-        },
-
-        {
-            "name": "FNB Credit Card - Graduate",
-            "idcolumn": "ucn",
-            "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_Graduate",
-            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
-            "subfolder": "Credit Card Graduate Files Loaded",
-            "fileName": "CC_Graduate_{}.csv",
-            "date_format": "%d%b%Y%H%M%S",
-            "table": {
-                "name": "Contacts",
-                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,campaign_name,offer_type,offers,segment,campeignid )",
-                "file_columns": ["filename","leadid","campaignid","id_no","customer_ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","campaign_type","offer_type","offer_amount","offer_segment","inserted_campaign_id"]
             },
             "formName":"76",
             "active": true
