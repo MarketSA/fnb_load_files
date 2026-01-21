@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from data import get_campaigns, process_xlsx, process_csv, check_duplicate_data_nopop
 from fnb_new import fnb_process_data
 from sendemail import sendEMail
+from pathlib import Path
 
 
 
@@ -17,6 +18,10 @@ def send_ntfy(title, message, tags='inbox_tray'):
         })
     except: pass
 
+def is_similar(file1: str = "", file2: str = "") -> bool:
+    name_without_ext = Path(file2).stem
+    return file1.startswith(name_without_ext)
+
 
 def process_from_folder(sub):
 
@@ -30,19 +35,25 @@ def process_from_folder(sub):
         if camp_find:
             for i in camp_find['files']:
                 message += f"{i['name']}\n"
-                folder = f"{i['folder']}"
+                folder = f"{i['folder']}\\{i['subfolder']}"
                 # for fol in os.listdir(folder):
                 print('processing folder', folder) 
                 # file_path = f"{folder}\\{fol}" 
 
                 timespec = (datetime.now() - timedelta(int(sub)))
-                file_path = f"{i['folder']}\\{i['subfolder']}\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime(i['date_format']))}".upper()
+                print('timespec',timespec)
+                toreplacetime = f"{timespec.strftime(i['date_format'])}".upper()
+                replacedFileName = i['fileName'].replace('<YYYYMMDD>', toreplacetime)
+                file_path = f"{i['folder']}\\{i['subfolder']}\\{replacedFileName}"
                 
-                # shutil.move(f"{file_path}", f"{folder}\\processed\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}")
-                # os.rename(f"{file_path}", f"{folder}\\{i['subfolder']}\\{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}")
-                # print('file moved')
-                # continue
-            # if os.path.isfile(file_path):
+                if not os.path.exists(file_path):
+                    files = os.listdir(folder)
+                        # print(files)
+                    similar_files = [file for file in files if is_similar(file, replacedFileName)]
+                    if similar_files:
+                        file_path = f"{i['folder']}\\{i['subfolder']}\\{similar_files[0]}"
+                    # print('similar files', similar_files)
+
                 if i['active']:
                     if os.path.exists(file_path):
                         print("list_files", file_path)
@@ -89,7 +100,7 @@ def process_from_folder(sub):
         message = '[Error in process_from_folder ]' +  f"{e} on line> {e.__traceback__.tb_lineno}"
         status = 'fail'
         print(message)
-
+        
     sendEMail(['givenk@marketsa.co.za', 'austinp@marketsa.co.za'], message.replace('\n', '<br>'), 'FNB Leads PSAS')
     send_ntfy("FNB Load Files Process", message, tags=status)
     print('Processing completed')
