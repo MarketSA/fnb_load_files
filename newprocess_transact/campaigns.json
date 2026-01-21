@@ -60,7 +60,7 @@
             "campaign_id": "000FNBTransactPersonal_<MM>_<YYYY>_MP_Fusion_Migration",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "MP_Fusion_Migration",
-            "fileName": "MP_Fusion_Migration_{}.csv.csv",
+            "fileName": "MP_Fusion_Migration_{}.csv",
             "date_format": "%d%b%Y",
             "table": {
                 "name": "Contacts",
@@ -78,7 +78,7 @@
             "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_Graduate",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Graduate Files Loaded",
-            "fileName": "CC_Graduate_{}.csv.csv",
+            "fileName": "CC_Graduate_{}.csv",
             "date_format": "%d%b%Y%H%M%S",
             "table": {
                 "name": "Contacts",
