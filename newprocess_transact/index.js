@@ -58,37 +58,42 @@ function run(param) {
     console.log('date_to_run', date_to_run, param)
     try {
         files.forEach(f => {
-            if (f['date_format'] == '%Y%m%d') {
-                date_to_run = formatDate(param);
-            }
-            let file;
-            let fileName = `${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`;
-            if (fs.existsSync(`${f['folder']}\\${fileName}`)) {
-                console.log('File exists:', fileName);
-                file = fileName;
-            } else {
-                // Read all files in the directory
-                const files = fs.readdirSync(`${f['folder']}`);
-                const similarFiles = files.filter(file => isSimilar(file, fileName));
-                if (similarFiles.length > 0) {
-                    file = similarFiles[0];
-                }
-            }
+            if (f['active']) {
 
-            if (file) {
-                console.log('Similar file found:', file);
-                fs.rename(
-                    `${f['folder']}\\${file}`
-                    , `${f['folder']}\\${f['subfolder']}\\${file}`
-                    , (err) => {
-                        if (err) {
-                            console.log('error', err)
-                            // if (err) throw err;
-                        };
-                        console.log('File was moved to destination');
-                    });
+                if (f['date_format'] == '%Y%m%d') {
+                    date_to_run = formatDate(param);
+                }
+                let file;
+                let fileName = `${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`;
+                if (fs.existsSync(`${f['folder']}\\${fileName}`)) {
+                    console.log('File exists:', fileName);
+                    file = fileName;
+                } else {
+                    // Read all files in the directory
+                    const files = fs.readdirSync(`${f['folder']}`);
+                    const similarFiles = files.filter(file => isSimilar(file, fileName));
+                    if (similarFiles.length > 0) {
+                        file = similarFiles[0];
+                    }
+                }
+
+                if (file) {
+                    console.log('Similar file found:', file);
+                    fs.rename(
+                        `${f['folder']}\\${file}`
+                        , `${f['folder']}\\${f['subfolder']}\\${file}`
+                        , (err) => {
+                            if (err) {
+                                console.log('error', err)
+                                // if (err) throw err;
+                            };
+                            console.log('File was moved to destination');
+                        });
+                } else {
+                    console.log('File does not exist:', fileName, file);
+                }
             } else {
-                console.log('File does not exist:', fileName, file);
+                console.log('Skipping inactive file configuration:', f['fileName']);
             }
         });
 
