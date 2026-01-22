@@ -36,14 +36,17 @@ function run(param) {
     try {
 
         files.forEach(f => {
-
-            fs.rename(`${f['folder']}\\${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`, `${f['folder']}\\${f['subfolder']}\\${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`, (err) => {
-                if (err) {
-                    console.log('error', err)
-                    // if (err) throw err;
-                };
-                console.log('File was moved to destination');
-            });
+            if (f['active']) {
+                fs.rename(`${f['folder']}\\${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`, `${f['folder']}\\${f['subfolder']}\\${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`, (err) => {
+                    if (err) {
+                        console.log('error', err)
+                        // if (err) throw err;
+                    };
+                    console.log('File was moved to destination');
+                });
+            } else {
+                console.log(`Skipping inactive file: ${f['fileName']}`);
+            }
         });
 
         const date1 = new Date();
