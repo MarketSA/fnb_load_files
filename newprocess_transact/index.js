@@ -73,22 +73,22 @@ function run(param) {
                 if (similarFiles.length > 0) {
                     file = similarFiles[0];
                 }
+            }
 
-                if (file) {
-                    console.log('Similar file found:', file);
-                    fs.rename(
-                        `${f['folder']}\\${file}`
-                        , `${f['folder']}\\${f['subfolder']}\\${file}`
-                        , (err) => {
-                            if (err) {
-                                console.log('error', err)
-                                // if (err) throw err;
-                            };
-                            console.log('File was moved to destination');
-                        });
-                } else {
-                    console.log('File does not exist:', fileName, file);
-                }
+            if (file) {
+                console.log('Similar file found:', file);
+                fs.rename(
+                    `${f['folder']}\\${file}`
+                    , `${f['folder']}\\${f['subfolder']}\\${file}`
+                    , (err) => {
+                        if (err) {
+                            console.log('error', err)
+                            // if (err) throw err;
+                        };
+                        console.log('File was moved to destination');
+                    });
+            } else {
+                console.log('File does not exist:', fileName, file);
             }
         });
 
