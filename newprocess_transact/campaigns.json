@@ -6,7 +6,7 @@
             "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_AlignmentPI",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
-            "fileName": "CC_Graduate_<YYYYMMDD>.csv",
+            "fileName": "CC_AlignmentPI_<YYYYMMDD>.csv",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",

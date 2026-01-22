@@ -50,7 +50,6 @@ function run(param) {
     console.log(param)
     let date_to_run = today()
     if (param == 'today' || param == null || param == "") {
-        date_to_run = today()
         param = today('', '-')
     } else {
         date_to_run = getdate(param)
@@ -58,7 +57,6 @@ function run(param) {
 
     console.log('date_to_run', date_to_run, param)
     try {
-
         files.forEach(f => {
             if (f['date_format'] == '%Y%m%d') {
                 date_to_run = formatDate(param);
@@ -94,24 +92,24 @@ function run(param) {
             }
         });
 
-        // const date1 = new Date();
-        // const date2 = new Date(param);
-        // const diffTime = Math.abs(date2 - date1);
-        // const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const date1 = new Date();
+        const date2 = new Date(param);
+        const diffTime = Math.abs(date2 - date1);
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-        // console.log('res', diffDays, date2)
+        console.log('res', diffDays, date2)
 
-        // const pythonProcess = spawn('python', ['run_new.py', diffDays]);
-        // pythonProcess.stdout.on('data', (data) => {
-        //     console.log(`Python output: ${data.toString()}`);
-        // });
-        // pythonProcess.stderr.on('data', (data) => {
-        //     console.error(`Python error: ${data.toString()}`);
-        // });
+        const pythonProcess = spawn('python', ['run_new.py', diffDays]);
+        pythonProcess.stdout.on('data', (data) => {
+            console.log(`Python output: ${data.toString()}`);
+        });
+        pythonProcess.stderr.on('data', (data) => {
+            console.error(`Python error: ${data.toString()}`);
+        });
 
-        // pythonProcess.on('close', (code) => {
-        //     console.log(`Child process exited with code ${code}`);
-        // });
+        pythonProcess.on('close', (code) => {
+            console.log(`Child process exited with code ${code}`);
+        });
     } catch (error) {
         console.log(error);
 

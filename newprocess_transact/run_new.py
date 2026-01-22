@@ -43,8 +43,8 @@ def process_from_folder(sub):
                 timespec = (datetime.now() - timedelta(int(sub)))
                 print('timespec',timespec)
                 toreplacetime = f"{timespec.strftime(i['date_format'])}".upper()
-                replacedFileName = i['fileName'].replace('<YYYYMMDD>', toreplacetime)
-                file_path = f"{i['folder']}\\{i['subfolder']}\\{replacedFileName}"
+                replacedFileName = i['fileName'].replace('<YYYYMMDD>', toreplacetime)   
+                file_path = f"{i['folder']}\\{i['subfolder']}\\{replacedFileName}" 
                 
                 if not os.path.exists(file_path):
                     files = os.listdir(folder)
@@ -69,9 +69,10 @@ def process_from_folder(sub):
                             message +=  f"File extension not recognized: {file_path}",
                             status +=  'fail'
                             break
+                        
                         for d in file_data:
                             d['inserted_campaign_id'] = f'{i['campaign_id']}'.replace('<MM>', f"{timespec.strftime('%B')}").replace('<YYYY>', f"{timespec.strftime('%Y')}")   
-                            d['filename'] = f"{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}"
+                            d['filename'] = f"{replacedFileName}"
                             
                         file_data = check_duplicate_data_nopop(file_data, i['idcolumn'])
 
@@ -101,7 +102,7 @@ def process_from_folder(sub):
         status = 'fail'
         print(message)
         
-    sendEMail(['givenk@marketsa.co.za', 'austinp@marketsa.co.za'], message.replace('\n', '<br>'), 'FNB Leads PSAS')
+    sendEMail(['givenk@marketsa.co.za', 'austinp@marketsa.co.za'], message.replace('\n', '<br>'), 'FNB Leads New transact Process Result')
     send_ntfy("FNB Load Files Process", message, tags=status)
     print('Processing completed')
 
