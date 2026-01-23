@@ -16,6 +16,24 @@
             "formName":"76",
             "active": true
         
+        },
+
+        {
+            "name": "FNB Credit Card - BT Subset",
+            "idcolumn": "ucn",
+            "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_BT_Subset",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
+            "subfolder": "Credit Card Files Loaded",
+            "fileName": "BT_Subset_<YYYYMMDD>.csv",
+            "date_format": "%Y%m%d",
+            "table": {
+                "name": "Contacts",
+                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,bt_rate,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","offers","segment","bt_rate","inserted_campaign_id"]
+            },
+            "formName":"76",
+            "active": true
+        
         }
 
     ]
