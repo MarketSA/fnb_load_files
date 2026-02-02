@@ -60,7 +60,7 @@ function run(param) {
         files.forEach(f => {
             if (f['active']) {
 
-                if (f['date_format'] == '%Y%m%d') {
+                if (f['date_format'] == '%Y%b%d') {
                     date_to_run = formatDate(param);
                 }
                 let file;
