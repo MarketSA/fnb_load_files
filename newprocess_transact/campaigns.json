@@ -28,8 +28,8 @@
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
-                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,bt_rate,campeignid )",
-                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","offers","segment","bt_rate","inserted_campaign_id"]
+                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,segment,bt_rate,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","segment","bt_rate","inserted_campaign_id"]
             },
             "formName":"76",
             "active": true

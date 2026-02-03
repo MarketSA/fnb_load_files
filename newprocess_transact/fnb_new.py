@@ -35,6 +35,8 @@ def fnb_process_data(data, camp_find):
         res['data'] = []
         res['status'] = "error"
         res['message'] = "Error occurred while trying to match campaigns"
+
+    print(res)
         
     return res, code
 
