@@ -3,7 +3,7 @@
         {
             "name": "FNB Credit Card - AlignmentPI",
             "idcolumn": "ucn",
-            "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_AlignmentPI",
+            "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_AlignmentPI",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_AlignmentPI_<YYYYMMDD>.csv",
@@ -14,14 +14,14 @@
                 "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","offer_amount","segment","able_to_move_up_reward_level","current_reward_level","new_reward_level_with_takeup","requirement_to_move_up","new_possible_eb_earn","inserted_campaign_id"]
             },
             "formName":"76",
-            "active": true
+            "active": false
         
         },
 
         {
             "name": "FNB Credit Card - BT Subset",
             "idcolumn": "ucn",
-            "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_BT_Subset",
+            "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_BT_Subset",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "BT_Subset_<YYYYMMDD>.csv",
