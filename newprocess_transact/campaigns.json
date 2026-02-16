@@ -39,7 +39,7 @@
         {
             "name": "FNB Credit Card - MissAlign Subset",
             "idcolumn": "ucn",
-            "campaign_id": "000FNBCreditCard_<MM>_<YYYY>_MisAlign",
+            "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_MisAlign",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_Misalignment_<YYYYMMDD>.csv",
