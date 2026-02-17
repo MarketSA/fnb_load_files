@@ -1,1 +1,1 @@
-node index.js 2026-02-16
+node index.js today
