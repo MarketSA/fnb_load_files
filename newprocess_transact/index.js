@@ -19,7 +19,7 @@ function today(date_run = '', replaceSTring = "") {
     return date.split('-').join(replaceSTring)
 }
 
-function formatDate(date) {
+function formatDate(date, dateFormat) {
     console.log("date fiormart", date);
     date = new Date(date);
     const day = String(date.getDate()).padStart(2, '0');
@@ -30,6 +30,9 @@ function formatDate(date) {
     const month = months[date.getMonth()];
 
     const year = date.getFullYear();
+    
+    if (dateFormat == '%Y%b%d')
+        return `${year}${month}${day}`;
 
     return `${day}${month}${year}`;
 }
@@ -61,7 +64,7 @@ function run(param) {
             if (f['active']) {
 
                 if (f['date_format'] == '%Y%b%d'  || f['date_format'] == '%d%b%Y') {
-                    date_to_run = formatDate(param);
+                    date_to_run = formatDate(param, f['date_format']);
                 }
                 let file;
                 let fileName = `${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`;
