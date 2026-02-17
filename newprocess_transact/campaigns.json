@@ -61,7 +61,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_Graduate_<YYYYMMDD>.csv",
-            "date_format": "%Y%m%d",
+            "date_format": "%d%m%Y",
             "table": {
                 "name": "Contacts",
                 "insert_formart": "(filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,campaign_name,offer_type,offers,segment,campeignid)",
