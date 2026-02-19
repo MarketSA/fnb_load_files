@@ -56,7 +56,7 @@
 
         {
             "name": "Credit Card - Graduate",
-            "idcolumn": "ucn",
+            "idcolumn": "customer_ucn",
             "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_Graduate",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
