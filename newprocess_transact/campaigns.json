@@ -68,7 +68,7 @@
                 "file_columns": ["filename","leadid","campaignid","id_no","customer_ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","campaign_type","offer_type","offer_amount","offer_segment","inserted_campaign_id"]
             },
             "formName":"76",
-            "active": true
+            "active": false
         
         }
 
