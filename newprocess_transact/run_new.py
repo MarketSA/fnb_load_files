@@ -52,6 +52,7 @@ def process_from_folder(sub):
                     similar_files = [file for file in files if is_similar(file, replacedFileName)]
                     if similar_files:
                         file_path = f"{i['folder']}\\{i['subfolder']}\\{similar_files[0]}"
+                        replacedFileName = f"{similar_files[0]}"
                     # print('similar files', similar_files)
 
                 if i['active']:
