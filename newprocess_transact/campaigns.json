@@ -78,7 +78,7 @@
             "campaign_id": "000FNBTransactPrivate_<MM>_<YYYY>_NTB_Spousal",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
-            "fileName": "Spousal_Private_MSA_<DDMMYYY>.csv",
+            "fileName": "Spousal_Private_MSA_<YYYYMMDD>.csv",
             "date_format": "%d%m%Y",
             "table": {
                 "name": "Contacts",
