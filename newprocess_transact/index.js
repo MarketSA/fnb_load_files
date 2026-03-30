@@ -35,7 +35,8 @@ function formatDate(date, dateFormat = '%d%b%Y', rev = false) {
         return `${year}${month}${day}`;
 
     if (rev){
-        return `${day}${date.getMonth() +1}${year}`;
+        const month3= String(date.getMonth() +1).padStart(2, '0');
+        return `${day}${month3}${year}`;
     }
 
     return `${day}${month}${year}`;
