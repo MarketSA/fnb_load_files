@@ -19,7 +19,7 @@ function today(date_run = '', replaceSTring = "") {
     return date.split('-').join(replaceSTring)
 }
 
-function formatDate(date, dateFormat) {
+function formatDate(date, dateFormat = '%d%b%Y', rev = false) {
     console.log("date fiormart", date);
     date = new Date(date);
     const day = String(date.getDate()).padStart(2, '0');
@@ -33,6 +33,10 @@ function formatDate(date, dateFormat) {
     
     if (dateFormat == '%Y%b%d')
         return `${year}${month}${day}`;
+
+    if (rev){
+        return `${day}${date.getMonth() +1}${year}`;
+    }
 
     return `${day}${month}${year}`;
 }
@@ -66,6 +70,10 @@ function run(param) {
                 if (f['date_format'] == '%Y%b%d'  || f['date_format'] == '%d%b%Y') {
                     date_to_run = formatDate(param, f['date_format']);
                 }
+                else if (f['date_format'] == '%d%m%Y') {
+                    date_to_run = formatDate(param, f['date_format'], true);
+                }
+
                 let file;
                 let fileName = `${String(f['fileName'].replace('<YYYYMMDD>', date_to_run))}`;
                 if (fs.existsSync(`${f['folder']}\\${fileName}`)) {
