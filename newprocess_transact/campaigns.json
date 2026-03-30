@@ -6,12 +6,12 @@
             "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_AlignmentPI",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
-            "fileName": "CC_AlignmentPI_<YYYYMMDD>.csv",
-            "date_format": "%Y%m%d",
+            "fileName": "CC_AlignmentPI_CMA06786V01M01<YYYYMMDD>.csv",
+            "date_format": "%d%b%Y",
             "table": {
                 "name": "Contacts",
-                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,offers,segment,able_to_move_up_reward_level,current_reward_level,new_reward_level_with_takeup,requirement_to_move_up,new_possible_eb_earn,campeignid )",
-                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","offer_amount","segment","able_to_move_up_reward_level","current_reward_level","new_reward_level_with_takeup","requirement_to_move_up","new_possible_eb_earn","inserted_campaign_id"]
+                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","inserted_campaign_id"]
             },
             "formName":"76",
             "active": true
@@ -24,12 +24,12 @@
             "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_BT_Subset",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
-            "fileName": "BT_Subset_<YYYYMMDD>.csv",
-            "date_format": "%Y%m%d",
+            "fileName": "BT_Subset_CMA07584V01M01<YYYYMMDD>.csv",
+            "date_format": "%d%b%Y",
             "table": {
                 "name": "Contacts",
-                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,segment,bt_rate,campeignid )",
-                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","segment","bt_rate","inserted_campaign_id"]
+                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_name","offer_type","inserted_campaign_id"]
             },
             "formName":"76",
             "active": true
@@ -60,7 +60,7 @@
             "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_Graduate",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
-            "fileName": "CC_Graduate_<YYYYMMDD>.csv",
+            "fileName": "CC_Graduate_CMA09030V01M01<YYYYMMDD>.csv",
             "date_format": "%d%b%Y",
             "table": {
                 "name": "Contacts",
@@ -68,6 +68,24 @@
                 "file_columns": ["filename","leadid","campaignid","id_no","customer_ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","campaign_type","offer_type","offer_amount","offer_segment","inserted_campaign_id"]
             },
             "formName":"76",
+            "active": true
+        
+        },
+
+        {
+            "name": "FNB Transact Private - Spousal",
+            "idcolumn": "ucn",
+            "campaign_id": "000FNBTransactPrivate_<MM>_<YYYY>_NTB_Spousal",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
+            "subfolder": "Credit Card Files Loaded",
+            "fileName": "Spousal_Private_MSA_<DDMMYYY>.csv",
+            "date_format": "%d%m%Y",
+            "table": {
+                "name": "Contacts",
+                "insert_formart": "( fileName,leadid,campaignid,idnumber,ucn,title,firstname,surname,telcell,channel_name,campaign_name,offer_type,segment,AdditionalField3,AdditionalField4,Old_Product,AdditionalField5,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","CellNumber","channel_name","campaign_name","offer_type","segment","FRMBO","PrimaryFamilyMemberName","Product_Holding","PrimaryFamilyMember_AccountName","inserted_campaign_id"]
+            },
+            "formName":"81",
             "active": true
         
         }

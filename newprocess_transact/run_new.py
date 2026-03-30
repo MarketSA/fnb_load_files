@@ -103,7 +103,7 @@ def process_from_folder(sub):
         status = 'fail'
         print(message)
         
-    sendEMail(['givenk@marketsa.co.za', 'austinp@marketsa.co.za'], message.replace('\n', '<br>'), 'FNB Leads New transact Process Result')
+    sendEMail(['givenk@marketsa.co.za', 'dunew@marketsa.co.za'], message.replace('\n', '<br>'), 'FNB Leads New transact Process Result')
     send_ntfy("FNB Load Files Process", message, tags=status)
     print('Processing completed')
 
