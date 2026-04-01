@@ -6,8 +6,8 @@
             "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_AlignmentPI",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
-            "fileName": "CC_AlignmentPI_CMA06786V01M01<YYYYMMDD>.csv",
-            "date_format": "%d%b%Y",
+            "fileName": "CC_AlignmentPI_<YYYYMMDD>.csv",
+            "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
                 "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,campeignid )",
@@ -24,8 +24,8 @@
             "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_BT_Subset",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
-            "fileName": "BT_Subset_CMA07584V01M01<YYYYMMDD>.csv",
-            "date_format": "%d%b%Y",
+            "fileName": "BT_Subset_<YYYYMMDD>.csv",
+            "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
                 "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,campeignid )",
@@ -60,8 +60,8 @@
             "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_Graduate",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
-            "fileName": "CC_Graduate_CMA09030V01M01<YYYYMMDD>.csv",
-            "date_format": "%d%b%Y",
+            "fileName": "CC_Graduate_<YYYYMMDD>.csv",
+            "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
                 "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,campaign_name,offer_type,offers,segment,campeignid )",
@@ -79,7 +79,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "Spousal_Private_MSA_<YYYYMMDD>.csv",
-            "date_format": "%d%m%Y",
+            "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
                 "insert_formart": "( fileName,leadid,campaignid,idnumber,ucn,title,firstname,surname,telcell,channel_name,campaign_name,offer_type,segment,AdditionalField3,AdditionalField4,Old_Product,AdditionalField5,campeignid )",
