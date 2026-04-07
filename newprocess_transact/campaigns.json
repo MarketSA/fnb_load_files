@@ -88,6 +88,24 @@
             "formName":"81",
             "active": true
         
+        },
+
+        {
+            "name": "FNB CC CVM", 
+            "idcolumn": "ucn",
+            "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_CVM",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
+            "subfolder": "Credit Card Files Loaded",
+            "fileName": "CVM-CC_CVM__<YYYYMMDD>.csv",
+            "date_format": "%Y%m%d",
+            "table": {
+                "name": "Contacts",
+                "insert_formart": "( fileName,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,loanAmount,Segment,Product,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","Campaign_type","offer_type","Offer_Amount","Offer_Segment","Product_type","inserted_campaign_id"]
+            },
+            "formName":"76",
+            "active": true
+        
         }
 
     ]
