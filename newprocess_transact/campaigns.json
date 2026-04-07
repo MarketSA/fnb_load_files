@@ -101,7 +101,7 @@
             "table": {
                 "name": "Contacts",
                 "insert_formart": "( fileName,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,loanAmount,Segment,Product,campeignid )",
-                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","Campaign_type","offer_type","Offer_Amount","Offer_Segment","Product_type","inserted_campaign_id"]
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_type","offer_type","offer_amount","offer_segment","product_type","inserted_campaign_id"]
             },
             "formName":"76",
             "active": true
