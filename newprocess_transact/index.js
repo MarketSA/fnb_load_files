@@ -100,8 +100,6 @@ function run(param) {
             }
         });
 
-        return
-
         const date1 = new Date();
         const date2 = new Date(param);
         const diffTime = Math.abs(date2 - date1);
