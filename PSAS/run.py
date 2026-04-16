@@ -1,6 +1,6 @@
 import os, requests, sys
 from datetime import datetime, timedelta
-from data import get_campaigns, process_xlsx, process_csv, check_duplicate_data_nopop
+from data import get_campaigns, process_xlsx, process_csv, check_duplicate_data_nopop, change_phone_number
 from fnb import fnb_process_data
 from sendemail import sendEMail
 
@@ -22,6 +22,7 @@ def process_from_folder(sub):
 
     code = 500
     message = ""
+    phone_error = ""
     status=  'fail'
     try:
         print('Start running')
@@ -60,6 +61,10 @@ def process_from_folder(sub):
                     for d in file_data:
                         d['inserted_campaign_id'] = f'{i['campaign_id']}'.replace('<MM>', f"{timespec.strftime('%B')}").replace('<YYYY>', f"{timespec.strftime('%Y')}")   
                         d['filename'] = f"{i['fileName'].replace('<YYYYMMDD>', timespec.strftime('%Y%m%d'))}"
+                        try:
+                            d[i['phoneField']] = change_phone_number(d[i['phoneField']])
+                        except Exception as eeee: 
+                            phone_error = eeee
                         
                     file_data = check_duplicate_data_nopop(file_data, i['idcolumn'])
 
@@ -70,9 +75,9 @@ def process_from_folder(sub):
                     data_res, data_code = fnb_process_data(file_data)
                     print(data_res)
                     # data_res = None
-                    message += f"{data_res}\n \n \n \n"
+                    message += f"{data_res}\n \n \n \n {phone_error}"
                 else:
-                    message += f'{file_path} does not exist \n \n'
+                    message += f'{file_path} does not exist \n \n {phone_error}'
                     message += "process completed"
                     status = "success"
             

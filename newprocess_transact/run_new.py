@@ -1,6 +1,6 @@
 import os, requests, sys
 from datetime import datetime, timedelta
-from data import get_campaigns, process_xlsx, process_csv, check_duplicate_data_nopop
+from data import get_campaigns, process_xlsx, process_csv, check_duplicate_data_nopop, change_phone_number
 from fnb_new import fnb_process_data
 from sendemail import sendEMail
 from pathlib import Path
@@ -27,6 +27,7 @@ def process_from_folder(sub):
 
     code = 500
     message = ""
+    phone_error = ''
     status=  'fail'
     try:
         print('Start running')
@@ -72,6 +73,10 @@ def process_from_folder(sub):
                             break
                         
                         for d in file_data:
+                            try:
+                                d[i['phoneField']] = change_phone_number(d[i['phoneField']])
+                            except Exception as eeee: 
+                                phone_error = eeee
                             d['inserted_campaign_id'] = f'{i['campaign_id']}'.replace('<MM>', f"{timespec.strftime('%B')}").replace('<YYYY>', f"{timespec.strftime('%Y')}")   
                             d['filename'] = f"{replacedFileName}"
                             
@@ -84,13 +89,13 @@ def process_from_folder(sub):
                         data_res, data_code = fnb_process_data(file_data, i)
                         print(data_res)
                         # data_res = None
-                        message += f"{data_res}\n \n \n \n"
+                        message += f"{data_res}\n \n \n \n {phone_error}"
                     else:
-                        message += f'{file_path} does not exist \n \n'
+                        message += f'{file_path} does not exist \n \n {phone_error}'
                         message += "process completed"
                         status = "success"
                 else:
-                    message += f'{file_path} Process is deactivated \n \n'
+                    message += f'{file_path} Process is deactivated \n \n {phone_error}'
                     message += "process completed"
                     status = "success"
             

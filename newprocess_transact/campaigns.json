@@ -7,6 +7,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_AlignmentPI_<YYYYMMDD>.csv",
+            "phoneField":"cell_tel_no",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -25,6 +26,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "BT_Subset_<YYYYMMDD>.csv",
+            "phoneField":"cell_tel_no",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -43,6 +45,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_Misalignment_<YYYYMMDD>.csv",
+            "phoneField":"cell_tel_no",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -61,6 +64,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_Graduate_<YYYYMMDD>.csv",
+            "phoneField":"cell_tel_no",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -79,6 +83,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "Spousal_Private_MSA_<YYYYMMDD>.csv",
+            "phoneField":"cell_tel_no",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -97,6 +102,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CVM-CC_CVM__<YYYYMMDD>.csv",
+            "phoneField":"cell_tel_no",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -110,11 +116,12 @@
 
         {
             "name": "Credit Card - Niche Retiree",
-            "idcolumn": "customer_ucn",
+            "idcolumn": "ucn",
             "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_Niche_Retiree",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_Retiree_<YYYYMMDD>.csv",
+            "phoneField":"cell_tel_no",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -128,11 +135,12 @@
 
         {
             "name": "Credit Card - Niche Public Sec",
-            "idcolumn": "customer_ucn",
+            "idcolumn": "ucn",
             "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_Niche_Public_sec",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_Public_Sec_<YYYYMMDD>.csv",
+            "phoneField":"cell_tel_no",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -146,11 +154,12 @@
 
         {
             "name": "Credit Card - Niche Self Emp",
-            "idcolumn": "customer_ucn",
+            "idcolumn": "ucn",
             "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_Niche_Self_Emp",
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_Self_Emp_<YYYYMMDD>.csv",
+            "phoneField":"cell_tel_no",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -169,6 +178,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Transact Files",
             "fileName": "MP_Aspire_Upgrade_test<YYYYMMDD>.csv",
+            "phoneField":"cell_tel_no",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
