@@ -106,6 +106,78 @@
             "formName":"76",
             "active": true
         
+        },
+
+        {
+            "name": "Credit Card - Niche Retiree",
+            "idcolumn": "customer_ucn",
+            "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_Niche_Retiree",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
+            "subfolder": "Credit Card Files Loaded",
+            "fileName": "CC_Retiree_<YYYYMMDD>.csv",
+            "date_format": "%Y%m%d",
+            "table": {
+                "name": "Contacts",
+                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,loanAmount,product,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_type","offer_type","offer_amount","offer_sticker","inserted_campaign_id"]
+            },
+            "formName":"76",
+            "active": true
+        
+        },
+
+        {
+            "name": "Credit Card - Niche Public Sec",
+            "idcolumn": "customer_ucn",
+            "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_Niche_Public_sec",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
+            "subfolder": "Credit Card Files Loaded",
+            "fileName": "CC_Public_Sec_<YYYYMMDD>.csv",
+            "date_format": "%Y%m%d",
+            "table": {
+                "name": "Contacts",
+                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,loanAmount,product,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_type","offer_type","offer_amount","offer_sticker","inserted_campaign_id"]
+            },
+            "formName":"76",
+            "active": true
+        
+        },
+
+        {
+            "name": "Credit Card - Niche Self Emp",
+            "idcolumn": "customer_ucn",
+            "campaign_id": "000FNBUnsplitCard_<MM>_<YYYY>_Niche_Self_Emp",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
+            "subfolder": "Credit Card Files Loaded",
+            "fileName": "CC_Self_Emp_<YYYYMMDD>.csv",
+            "date_format": "%Y%m%d",
+            "table": {
+                "name": "Contacts",
+                "insert_formart": "( filename,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campaign_name,offer_type,loanAmount,product,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","campaign_type","offer_type","offer_amount","offer_sticker","inserted_campaign_id"]
+            },
+            "formName":"76",
+            "active": true
+        
+        },
+
+        {
+            "name": "FNB Transact Aspire Upgrade", 
+            "idcolumn": "ucn",
+            "campaign_id": "000FNBTransactPersonal_<MM>_<YYYY>_MP_Asp_Upgrades",
+            "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
+            "subfolder": "Transact Files",
+            "fileName": "MP_Aspire_Upgrade_test<YYYYMMDD>.csv",
+            "date_format": "%Y%m%d",
+            "table": {
+                "name": "Contacts",
+                "insert_formart": "( fileName,leadid,campaignid,idnumber,ucn,title,firstname,surname,telwork,telcell,telhome,channel_name,campeignid )",
+                "file_columns": ["filename","leadid","campaignid","id_no","ucn","title","firstname","surname","work_tel_no","cell_tel_no","pers_tel_no","channel_name","inserted_campaign_id"]
+            },
+            "formName":"85",
+            "active": true
+        
         }
 
     ]
