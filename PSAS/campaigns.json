@@ -7,6 +7,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "fileName": "PSAS_FRMBO_CC_OpenMarket_<YYYYMMDD>.csv",
             "active": true,
+            "phoneField":"cell_tel_no",
             "subfolder": "PSAS_FRMBO"
         },
         {
@@ -16,6 +17,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "fileName": "PSAS_NMB_CC_OpenMarket_<YYYYMMDD>.csv",
             "active": true,
+            "phoneField":"cell_tel_no",
             "subfolder":"PSAS_NMB"
         },
         {
@@ -25,6 +27,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "fileName": "PSAS_NTB_CC_OpenMarket_<YYYYMMDD>.csv",
             "active": true,
+            "phoneField":"cell_tel_no",
             "subfolder":"PSAS_NTB"
         }
     ],
