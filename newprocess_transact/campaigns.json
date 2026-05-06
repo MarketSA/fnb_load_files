@@ -121,7 +121,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_Retiree_<YYYYMMDD>.csv",
-            "phoneField":"cell_tel_no",
+            "phoneField":"telcell",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -140,7 +140,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_Public_Sec_<YYYYMMDD>.csv",
-            "phoneField":"cell_tel_no",
+            "phoneField":"telcell",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
@@ -159,7 +159,7 @@
             "folder": "\\\\192.168.3.133\\FNB Upload MFTP\\BANK\\in",
             "subfolder": "Credit Card Files Loaded",
             "fileName": "CC_Self_Emp_<YYYYMMDD>.csv",
-            "phoneField":"cell_tel_no",
+            "phoneField":"telcell",
             "date_format": "%Y%m%d",
             "table": {
                 "name": "Contacts",
