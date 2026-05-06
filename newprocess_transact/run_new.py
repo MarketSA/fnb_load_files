@@ -89,14 +89,14 @@ def process_from_folder(sub):
                         data_res, data_code = fnb_process_data(file_data, i)
                         print(data_res)
                         # data_res = None
-                        message += f"{data_res}\n \n \n \n {phone_error}"
+                        message += f"{data_res}\n   {phone_error} \n \n  \n"
                     else:
                         message += f'{file_path} does not exist \n \n {phone_error}'
-                        message += "process completed"
+                        message += "process completed \n \n"
                         status = "success"
                 else:
                     message += f'{file_path} Process is deactivated \n \n {phone_error}'
-                    message += "process completed"
+                    message += "process completed \n \n"
                     status = "success"
             
 

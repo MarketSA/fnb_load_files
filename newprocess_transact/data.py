@@ -143,7 +143,7 @@ def insert_data(campaign, db_data, insert_formart = 'insert_formart', file_colum
         if table['insert_formart']:
             sql = []
             
-            if len(db_data) < 1000:
+            if len(db_data) < 1100:
                 db_data = create_insert_string(table[file_columns], db_data)
                 sql.append(f"""INSERT INTO dbo.[{table['name']}] {table[insert_formart]} VALUES {db_data}""")
             else:
@@ -166,7 +166,7 @@ def insert_data(campaign, db_data, insert_formart = 'insert_formart', file_colum
             res_count = 0
             cursor.execute('set ANSI_WARNINGS  OFF')
             cnxn.commit()
-
+            print('sql=> ', len(sql))
             for ins in sql:
                 res_count += cursor.execute(ins).rowcount
                 cnxn.commit()
